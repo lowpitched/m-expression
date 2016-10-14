@@ -6,7 +6,6 @@ package com.mlh.expression.calcoper;
  * @description 
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月13日下午4:59:01
- * @update 修改时间：2016年10月13日下午4:59:01
  */
 
 public class OperatorType {
@@ -43,9 +42,7 @@ public class OperatorType {
 	 * 判断是哪个运算符
 	 * @description 方法描述：
 	 * @crater      创建者：MENGLIHAO 
-	 * @updater     修改者：MENGLIHAO 
 	 * @create      创建时间：2016年10月13日
-	 * @update      修改时间：2016年10月13日
 	 * @param operator
 	 * @return
 	 */

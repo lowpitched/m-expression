@@ -3,6 +3,7 @@ package com.mlh.expression.engine;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 
+import com.mlh.expression.calcoper.OperatorType;
 import com.mlh.expression.parse.ExpressionParse;
 import com.mlh.expression.parse.IExpressionParse;
 
@@ -14,27 +15,59 @@ import com.mlh.expression.parse.IExpressionParse;
  * @create 创建时间：2016年10月13日下午5:41:03
  */
 
-public class SimpleCalcEngine implements ICalcEngine{
+public class SimpleCalcEngine extends NoBracketsCalcEngine{
 	
 	public BigDecimal calc(String expression){
 		IExpressionParse parse = new ExpressionParse();
 		String[] words = parse.parse(expression);
 		LinkedList<String> stack = new LinkedList<String>();
 		for(int i=0;i<words.length;i++){
-			stack.add(words[i]);
+			String word = words[i];
+			stack.add(word);
+			int operatorType = OperatorType.whatOperator(word);
+			if(OperatorType.OPERATOR_BRACKETS_RIGHT==operatorType){
+				fold(stack);
+			}
 		}
-		return null;
+		if(stack.size()>1){
+			finalCalc(stack);
+		}
+		return new BigDecimal(stack.get(0));
 	}
 	
 	/**
-	 * 判断是否需要冒泡
+	 * 折叠计算完成之后，完成最后的计算
 	 * @description 方法描述：
 	 * @crater      创建者：MENGLIHAO 
-	 * @create      创建时间：2016年10月13日
-	 * @return
+	 * @create      创建时间：2016年10月14日
+	 * @param stack
 	 */
-	public boolean isNeedPop(String word){
-		return false;
+	private void finalCalc(LinkedList<String> stack) {
+		String[] words = stack.toArray(new String[stack.size()]);
+		stack.clear();
+		stack.add(super.simpleCalc2(words).toString());
+	}
+	/**
+	 * 折叠计算（将括号包含的表达式出栈，计算，然后压入栈顶）
+	 * @description 方法描述：
+	 * @crater      创建者：MENGLIHAO 
+	 * @create      创建时间：2016年10月14日
+	 * @param stack
+	 */
+	private void fold(LinkedList<String> stack) {
+		//右括号出栈
+		stack.pollLast();
+		LinkedList<String> sub = new LinkedList<String>();
+		while(true){
+			String word = stack.pollLast();
+			int operatorType = OperatorType.whatOperator(word);
+			if(OperatorType.OPERATOR_BRACKETS_LEFT==operatorType){
+				BigDecimal foldFactor = super.simpleCalc2(sub.toArray(new String[sub.size()]));
+				stack.add(foldFactor.toString());
+				break;
+			}
+			sub.addFirst(word);
+		}
 	}
 	
 }
