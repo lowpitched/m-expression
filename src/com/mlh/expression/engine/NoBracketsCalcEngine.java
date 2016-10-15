@@ -14,7 +14,6 @@ import com.mlh.expression.model.Operator;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月13日下午4:56:54
  */
-
 public abstract class NoBracketsCalcEngine implements ICalcEngine{
 
 	/**

@@ -8,7 +8,6 @@ import com.mlh.expression.varpool.IVarSource;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月15日下午6:00:18
  */
-
 class Expression {
 	/**表达式ID*/
 	private String expressionId;

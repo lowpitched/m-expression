@@ -7,7 +7,6 @@ package com.mlh.expression.calcoper;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月13日下午4:59:01
  */
-
 public class OperatorType {
 	//不是运算符
 	public static final int OPERATOR_NONE=-1;

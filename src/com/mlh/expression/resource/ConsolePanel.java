@@ -6,7 +6,6 @@ package com.mlh.expression.resource;
  * @description 
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月15日下午12:58:51
- * @update 修改时间：2016年10月15日下午12:58:51
  */
 
 public class ConsolePanel {

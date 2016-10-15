@@ -8,9 +8,7 @@ import java.util.Map;
  * @description 
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月15日下午7:51:36
- * @update 修改时间：2016年10月15日下午7:51:36
  */
-
 public class ConfigModel {
 
 	public static final String EXPRESSION_MLH_LOG="expression.mlh.log";

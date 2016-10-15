@@ -13,9 +13,7 @@ import java.util.Properties;
  * @description 
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月15日下午1:02:15
- * @update 修改时间：2016年10月15日下午1:02:15
  */
-
 public class ExpressionConfig {
 	
 	public static final String FILENAME="m-expression-config.txt";
@@ -45,35 +43,35 @@ public class ExpressionConfig {
 			fi = new FileInputStream(new File(path+File.separator+FILENAME));
 			properties.load(fi);
 			String printLog = properties.getProperty(ConfigModel.EXPRESSION_MLH_LOG);
-			if(null==printLog&&"".equals(printLog)){
+			if(null!=printLog&&!"".equals(printLog)){
 				model.printLog=Integer.parseInt(printLog);
 			}
 			String varSource = properties.getProperty(ConfigModel.EXPRESSION_MLH_VARSOURCE_CLASS);
-			if(null==varSource&&"".equals(varSource)){
+			if(null!=varSource&&!"".equals(varSource)){
 				model.varSourceClass=varSource;
 			}
 			String resultScale = properties.getProperty(ConfigModel.EXPRESSION_MLH_GLOBAL_SCALE_RESULT);
-			if(null==resultScale&&"".equals(resultScale)){
+			if(null!=resultScale&&!"".equals(resultScale)){
 				model.resultScale=Integer.parseInt(resultScale);
 			}
 			String processScale = properties.getProperty(ConfigModel.EXPRESSION_MLH_GLOBAL_SCALE_PROCESS);
-			if(null==processScale&&"".equals(processScale)){
+			if(null!=processScale&&!"".equals(processScale)){
 				model.processScale=Integer.parseInt(processScale);
 			}
 			String tailType = properties.getProperty(ConfigModel.EXPRESSION_MLH_GLOBAL_TAIL);
-			if(null==tailType&&"".equals(tailType)){
+			if(null!=tailType&&!"".equals(tailType)){
 				model.tailType=Integer.parseInt(tailType);
 			}
 			String personalResultScale = properties.getProperty(ConfigModel.EXPRESSION_MLH_PERSONAL_SCALE_RESULT);
-			if(null==personalResultScale&&"".equals(personalResultScale)){
+			if(null!=personalResultScale&&!"".equals(personalResultScale)){
 				model.personalResultScale=initPersonalScale(personalResultScale);
 			}
 			String personalProcessScale = properties.getProperty(ConfigModel.EXPRESSION_MLH_PERSONAL_SCALE_PROCESS);
-			if(null==personalProcessScale&&"".equals(personalProcessScale)){
+			if(null!=personalProcessScale&&!"".equals(personalProcessScale)){
 				model.personalProcessScale=initPersonalScale(personalProcessScale);
 			}
 			String personalTailType = properties.getProperty(ConfigModel.EXPRESSION_MLH_PERSONAL_TAIL);
-			if(null==personalTailType&&"".equals(personalTailType)){
+			if(null!=personalTailType&&!"".equals(personalTailType)){
 				model.personalTailType=initPersonalScale(personalTailType);
 			}
 			this.model = model;

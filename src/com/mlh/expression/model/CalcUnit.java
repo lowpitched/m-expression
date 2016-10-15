@@ -11,7 +11,6 @@ import com.mlh.expression.calcoper.OperatorType;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月14日下午8:40:09
  */
-
 public class CalcUnit implements Comparable<CalcUnit>{
 	/**前一个计算因子*/
 	private String previous;

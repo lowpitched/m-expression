@@ -10,7 +10,6 @@ import java.util.Collections;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月14日下午9:02:09
  */
-
 public class CalcUnitChain {
 
 	private ArrayList<CalcUnit> chain = new ArrayList<CalcUnit>();

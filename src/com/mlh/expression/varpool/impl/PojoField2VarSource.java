@@ -13,7 +13,6 @@ import com.mlh.expression.varpool.IVarSource;
  * @description 
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月15日下午4:38:15
- * @update 修改时间：2016年10月15日下午4:38:15
  */
 
 public class PojoField2VarSource<T> implements IVarSource{

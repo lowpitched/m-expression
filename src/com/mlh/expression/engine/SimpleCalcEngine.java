@@ -14,7 +14,6 @@ import com.mlh.expression.varpool.IVarSource;
  * @author 作者：MENGLIHAO
  * @create 创建时间：2016年10月13日下午5:41:03
  */
-
 public class SimpleCalcEngine extends NoBracketsCalcEngine{
 	
 	public BigDecimal calc(String expression,IVarSource varSource){
