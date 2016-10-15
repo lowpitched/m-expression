@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import com.mlh.expression.calcoper.OperatorType;
 import com.mlh.expression.parse.ExpressionParse;
-import com.mlh.expression.parse.IExpressionParse;
+import com.mlh.expression.varpool.IVarSource;
 
 
 /**
@@ -17,9 +17,9 @@ import com.mlh.expression.parse.IExpressionParse;
 
 public class SimpleCalcEngine extends NoBracketsCalcEngine{
 	
-	public BigDecimal calc(String expression){
-		IExpressionParse parse = new ExpressionParse();
-		String[] words = parse.parse(expression);
+	public BigDecimal calc(String expression,IVarSource varSource){
+		ExpressionParse parse = ExpressionParse.initExpression(expression, varSource);
+		String[] words = parse.parse2Raw();
 		LinkedList<String> stack = new LinkedList<String>();
 		for(int i=0;i<words.length;i++){
 			String word = words[i];

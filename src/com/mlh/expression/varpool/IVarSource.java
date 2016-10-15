@@ -15,4 +15,6 @@ public interface IVarSource {
 	
 	Map<String,String> getSource();
 	
+	String getVarValue(String var);
+	
 }

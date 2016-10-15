@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mlh.expression.calcoper.OperatorType;
+import com.mlh.expression.varpool.IVarSource;
 
 
 
@@ -15,9 +16,17 @@ import com.mlh.expression.calcoper.OperatorType;
  * @create 创建时间：2016年10月13日下午5:36:10
  */
 
-public class ExpressionParse implements IExpressionParse{
-
-	public String[] parse(String expression){
+public class ExpressionParse {
+	/**表达式*/
+	private Expression expression;
+	
+	private ExpressionParse(){}
+	
+	public String[] parse2Raw(){
+		return expression.getParseWord();
+	}
+	
+	static String[] parse(String expression){
 		//处理以负号开头的表达式
 		expression = startWithMinus(expression);
 		
@@ -64,11 +73,17 @@ public class ExpressionParse implements IExpressionParse{
 	 * @param expression
 	 * @return
 	 */
-	private String startWithMinus(String expression) {
+	private static String startWithMinus(String expression) {
 		expression = expression.trim().replaceAll("\\(-", "(0-");
 		if(expression.trim().startsWith("-")){
 			return "0"+expression;
 		}
 		return expression;
+	}
+	
+	public static ExpressionParse initExpression(String expressionWithVar,IVarSource varSource){
+		ExpressionParse parse = new ExpressionParse();
+		parse.expression = new Expression(expressionWithVar,varSource);
+		return parse;
 	}
 }

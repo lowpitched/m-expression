@@ -2,6 +2,8 @@ package com.mlh.expression.engine;
 
 import java.math.BigDecimal;
 
+import com.mlh.expression.varpool.IVarSource;
+
 
 /**
  * 计算引擎接口
@@ -12,6 +14,6 @@ import java.math.BigDecimal;
 
 public interface ICalcEngine {
 
-	BigDecimal calc(String expression);
+	BigDecimal calc(String expression,IVarSource varSource);
 	
 }
