@@ -5,17 +5,17 @@
 ####项目局限：目前只支持加减乘除四则运算
 ####项目使用:
 1. 控制台模式
-	*1) 运行calculator.bat
-	*2) 输入运算式，如：((442.98*23-12)*7+6)-11.5*6
-	*3) 回车，输出计算结果
+	* 1) 运行calculator.bat
+	* 2) 输入运算式，如：((442.98*23-12)*7+6)-11.5*6
+	* 3) 回车，输出计算结果
 2. API模式
-	1)配置配置文件m-expression-config.txt(文件名称不可变)，配置文件中有各项配置说明
-	2)编写表达式配置文件，可参考m-expression.txt
-	3)入口类ExpressionContext，构造需要两个参数ExpressionConfig和FileExpression
-	4)配置文件解析类ExpressionConfig 解析m-expression-config.txt(配置文件名称不可变)
-	5)表达式配置文件FileExpression 解析示例中的 m-expression.txt(配置文件名称自定义)
-	6)调用ExpressionContext 方法calcByExpressionId，需传入expressionId(表达式ID)和IVarSource(变量池数据源)
-	7)需要将POJO对象的字段转换为变量池时，请使用PojoFiled2VarSource 传入的POJO参数，需要加入变量池的请使用@Var注解
+	* 1)配置配置文件m-expression-config.txt(文件名称不可变)，配置文件中有各项配置说明
+	* 2)编写表达式配置文件，可参考m-expression.txt
+	* 3)入口类ExpressionContext，构造需要两个参数ExpressionConfig和FileExpression
+	* 4)配置文件解析类ExpressionConfig 解析m-expression-config.txt(配置文件名称不可变)
+	* 5)表达式配置文件FileExpression 解析示例中的 m-expression.txt(配置文件名称自定义)
+	* 6)调用ExpressionContext 方法calcByExpressionId，需传入expressionId(表达式ID)和IVarSource(变量池数据源)
+	* 7)需要将POJO对象的字段转换为变量池时，请使用PojoFiled2VarSource 传入的POJO参数，需要加入变量池的请使用@Var注解
 <br/>
 ####代码示例：
 `
@@ -35,8 +35,8 @@ public class Zoo {
 	...get、Set方法请自行补充
 	
 }
-
-
+`
+`
 public class ExpressionStart {
 	public static void main(String[] args){
 		ExpressionContext context = new ExpressionContext(new ExpressionConfig().config("./bin"),new FileExpression(new File("./bin/m-expression.txt")));
