@@ -18,7 +18,7 @@
 	* 7)需要将POJO对象的字段转换为变量池时，请使用PojoFiled2VarSource 传入的POJO参数，需要加入变量池的请使用@Var注解
 <br/>
 ####代码示例：
-
+<pre><code>
 //需要将Zoo对象的字段值放入变量池用@Var注解修饰。 name为变量名，缺省时变量名为字段名
 public class Zoo {
 	@Var(name="dogtest")
@@ -44,4 +44,4 @@ public class ExpressionStart {
 		System.err.println(result);
 	}
 }
-
+</code></pre>
