@@ -1,4 +1,4 @@
->####项目名称：m-expression(表达式计算引擎)
+####项目名称：m-expression(表达式计算引擎)
 ####项目版本：v1.0.00-release
 ####项目功能：输入字符串表达式输出计算结果（内部用BigDecimal实现，保证精度）
 ####项目特色：支持变量表达式。调用时需传入变量池(变量-值映射)，用以替换表达式中的变量进行计算。
@@ -39,12 +39,14 @@ public class Zoo {
 }
 </code>
 </pre>
-<code
+<pre>
+<code>
 public class ExpressionStart {
 	public static void main(String[] args){
 		ExpressionContext context = new ExpressionContext(new ExpressionConfig().config("./bin"),new FileExpression(new File("./bin/m-expression.txt")));
-		BigDecimal result = context.calcByExpressionId("num", new PojoField2VarSource<Zoo>(new Zoo()));
+		BigDecimal result = context.calcByExpressionId("num", new PojoField2VarSource(new Zoo()));
 		System.err.println(result);
 	}
 }
 </code>
+</pre>
