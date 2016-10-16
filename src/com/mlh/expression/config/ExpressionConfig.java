@@ -108,6 +108,6 @@ public class ExpressionConfig {
 	}
 	
 	public ConfigModel getModel(){
-		return this.model;
+		return this.model==null?new ConfigModel():model;
 	}
 }

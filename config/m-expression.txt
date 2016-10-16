@@ -1,6 +1,7 @@
-#表达式文件 书写规范用驼峰式变量命名规则，但实际运行不区分大小写
+#表达式文件
 
-#外口算法认购手续费计算
+#示例：
+#外扣算法认购手续费计算
 #WKfeeAmt=subAckAmt-subAckAmt/(1+feeRate)
 #内扣算法认购手续费计算
 #NKfeeAmt=subAckAmt*feeRate
@@ -9,10 +10,5 @@
 #净确认金额
 #subAckAmtPure=subAckAmt-WKfeeAmt
 
-#业绩报酬算法
-#算法1
-#算法2
-#算法3
-
 #test
-num=(dogtest+cat)+cat+elephant-11*(-monkey)/5
+num=(dogtest+cat)*cat+elephant-11*(-monkey)/5

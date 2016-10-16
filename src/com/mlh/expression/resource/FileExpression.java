@@ -29,7 +29,7 @@ public class FileExpression {
 			while(keys.hasMoreElements()){
 				String expressionId = (String) keys.nextElement();
 				String expression = ppt.getProperty(expressionId);
-				expressions.put(expressionId, expression);
+				expressions.put(expressionId, expressionId+"="+expression);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -19,7 +19,13 @@ class Expression {
 	private IVarSource varSource;
 	
 	public Expression(String expressionWithVar,IVarSource varSource){
-		this.expressionWithVar = expressionWithVar;
+		if(expressionWithVar.contains("=")){
+			String[] split = expressionWithVar.split("=");
+			this.expressionId = split[0];
+			this.expressionWithVar = split[1];
+		}else{
+			this.expressionWithVar = expressionWithVar;
+		}
 		this.varSource = varSource;
 		init();
 	}

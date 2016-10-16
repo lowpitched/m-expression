@@ -3,6 +3,7 @@ package com.mlh.expression.model;
 import java.math.BigDecimal;
 
 import com.mlh.expression.calcoper.OperatorType;
+import com.mlh.expression.config.ExpressionConfig;
 
 
 /**
@@ -12,6 +13,8 @@ import com.mlh.expression.calcoper.OperatorType;
  * @create 创建时间：2016年10月14日下午8:40:09
  */
 public class CalcUnit implements Comparable<CalcUnit>{
+	
+	private String expressionId;
 	/**前一个计算因子*/
 	private String previous;
 	/**运算符*/
@@ -34,17 +37,15 @@ public class CalcUnit implements Comparable<CalcUnit>{
 		BigDecimal secord = new BigDecimal(next);
 		int operatorType = operator.getOperatorType();
 		if(OperatorType.OPERATOR_ADD==operatorType){
-			System.out.println(first+"+"+secord);
 			return first.add(secord);
 		}else if(OperatorType.OPERATOR_MINUS==operatorType){
-			System.out.println(first+"-"+secord);
 			return first.subtract(secord);
 		}else if(OperatorType.OPERATOR_MULTIPLY==operatorType){
-			System.out.println(first+"*"+secord);
 			return first.multiply(secord);
 		}else if(OperatorType.OPERATOR_DIVIDE==operatorType){
-			System.out.println(first+"/"+secord);
-			return first.divide(secord,16,BigDecimal.ROUND_HALF_UP);
+			ExpressionConfig config = ExpressionConfig.instance();
+			int scale = config.getModel().getPersonalProcessScale(expressionId);
+			return first.divide(secord,scale,BigDecimal.ROUND_HALF_UP);
 		}else{
 			throw new RuntimeException("不支持的运算符号");
 		}
@@ -71,12 +72,9 @@ public class CalcUnit implements Comparable<CalcUnit>{
 			this.nextUnit.previous=result.toString();
 			this.nextUnit.previousUnit=this.previousUnit;
 		}
-		System.out.println(result);
 		chain.remove(this);
 		return "$";
 	}
-	
-	
 	
 	public String getPrevious() {
 		return previous;
@@ -102,11 +100,9 @@ public class CalcUnit implements Comparable<CalcUnit>{
 	public void setPreviousUnit(CalcUnit previousUnit) {
 		this.previousUnit = previousUnit;
 	}
-
 	public CalcUnit getNextUnit() {
 		return nextUnit;
 	}
-
 	public void setNextUnit(CalcUnit nextUnit) {
 		this.nextUnit = nextUnit;
 	}

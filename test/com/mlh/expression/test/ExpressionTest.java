@@ -42,7 +42,7 @@ public class ExpressionTest {
 	@Test
 	public void testVarCalc(){
 		SimpleCalcEngine engine = new SimpleCalcEngine();
-		BigDecimal result = engine.calc("(dogtest+cat)+cat+elephant-11*(-monkey)/5", new PojoField2VarSource<Zoo>(new Zoo()));
+		BigDecimal result = engine.calc("(dogtest+cat)*cat+elephant-11*(-monkey)/5", new PojoField2VarSource<Zoo>(new Zoo()));
 		System.err.println(result);
 	}
 	@Test

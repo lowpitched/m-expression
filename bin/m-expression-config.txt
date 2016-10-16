@@ -3,21 +3,27 @@
 ####################################
 #1.可配置计算跟踪日志开关 0不输出 1输出
 expression.mlh.log=0
+
 #2.可配置变量池数据源获取类
 expression.mlh.varsource.class=com.yss.xxx.Exsample
+
 #3.可配置全局结果小数精度
 expression.mlh.global.scale.result=2
+
 #4.可配置全局计算过程中小数精度
 expression.mlh.global.scale.process=10
+
 #5.可配置全局结尾处理方式 0 四舍五入 1只入不舍 2只舍不入
 expression.mlh.global.tail=0
 
 ####################################
-#根据具体表达式配置
+#表达式个性配置,如果不配置默认走全局配置，如果配置则覆盖全局配置
 ####################################
 #1.表达式个性化结果小数精度  结构为 <表达式ID>:<精度> 多个表达式ID用逗号隔开
 #expression.mlh.personal.scale.result=expressionId1:2,expressionId2:2,expressionId3:2
+
 #2.表达式个性化计算过程小数精度  结构为 <表达式ID>:<精度> 多个表达式ID用逗号隔开
 #expression.mlh.personal.scale.process=expressionId1:16,expressionId2:15,expressionId3:14
+
 #3.表达式个性化结尾处理方式 结构为 <表达式ID>:<处理方式> 多个表达式ID用逗号隔开
 #expression.mlh.personal.tail=expressionId1:roundup,expressionId2:rounddown,expressionId3:rounddown

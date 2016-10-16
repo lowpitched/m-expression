@@ -1,7 +1,6 @@
 package com.mlh.expression.engine;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 
 import com.mlh.expression.model.CalcUnit;
 import com.mlh.expression.model.CalcUnitChain;
@@ -27,7 +26,6 @@ public abstract class NoBracketsCalcEngine implements ICalcEngine{
 	private CalcUnitChain arr2CalcUnitChain(String[] words){
 		CalcUnitChain chain = new CalcUnitChain();
 		CalcUnit previousUnit = null;
-		System.out.println(Arrays.asList(words));
 		for(int i=1;i<=words.length;i++){
 			if(i%2==0&&i!=0){
 				//运算符
