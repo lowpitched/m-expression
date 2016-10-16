@@ -18,7 +18,8 @@
 	7)需要将POJO对象的字段转换为变量池时，请使用PojoFiled2VarSource 传入的POJO参数，需要加入变量池的请使用@Var注解
 <br/>
 ####代码示例：
-'//需要将Zoo对象的字段值放入变量池用@Var注解修饰。 name为变量名，缺省时变量名为字段名
+`
+//需要将Zoo对象的字段值放入变量池用@Var注解修饰。 name为变量名，缺省时变量名为字段名
 public class Zoo {
 	@Var(name="dogtest")
 	private int dog = 2;
@@ -34,8 +35,8 @@ public class Zoo {
 	...get、Set方法请自行补充
 	
 }
-'
-'
+
+
 public class ExpressionStart {
 	public static void main(String[] args){
 		ExpressionContext context = new ExpressionContext(new ExpressionConfig().config("./bin"),new FileExpression(new File("./bin/m-expression.txt")));
@@ -43,4 +44,4 @@ public class ExpressionStart {
 		System.err.println(result);
 	}
 }
-'
+`
