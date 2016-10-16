@@ -1,4 +1,4 @@
-####项目名称：m-expression(表达式计算引擎)
+>####项目名称：m-expression(表达式计算引擎)
 ####项目版本：v1.0.00-release
 ####项目功能：输入字符串表达式输出计算结果（内部用BigDecimal实现，保证精度）
 ####项目特色：支持变量表达式。调用时需传入变量池(变量-值映射)，用以替换表达式中的变量进行计算。
@@ -17,8 +17,10 @@
 	* 6)调用ExpressionContext 方法calcByExpressionId，需传入expressionId(表达式ID)和IVarSource(变量池数据源)
 	* 7)需要将POJO对象的字段转换为变量池时，请使用PojoFiled2VarSource 传入的POJO参数，需要加入变量池的请使用@Var注解
 <br/>
+
 ####代码示例：
-<pre><code>
+<pre>
+<code>
 //需要将Zoo对象的字段值放入变量池用@Var注解修饰。 name为变量名，缺省时变量名为字段名
 public class Zoo {
 	@Var(name="dogtest")
@@ -35,8 +37,9 @@ public class Zoo {
 	...get、Set方法请自行补充
 	
 }
-
-
+</code>
+</pre>
+<code
 public class ExpressionStart {
 	public static void main(String[] args){
 		ExpressionContext context = new ExpressionContext(new ExpressionConfig().config("./bin"),new FileExpression(new File("./bin/m-expression.txt")));
@@ -44,4 +47,4 @@ public class ExpressionStart {
 		System.err.println(result);
 	}
 }
-</code></pre>
+</code>
