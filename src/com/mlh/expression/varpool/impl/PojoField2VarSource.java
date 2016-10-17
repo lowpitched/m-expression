@@ -35,7 +35,7 @@ public class PojoField2VarSource<T> implements IVarSource{
 				field.setAccessible(true);
 				Var varAnnotation = field.getAnnotation(Var.class);
 				if(null==varAnnotation){
-					return;
+					continue;
 				}
 				String varName = varAnnotation.name();
 				if("".equals(varName)){

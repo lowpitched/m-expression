@@ -33,6 +33,10 @@ public class MapVarSource implements IVarSource{
 		return source.remove(var);
 	}
 	
+	public void clear(){
+		source.clear();
+	}
+	
 	public int size(){
 		return source.size();
 	}
